@@ -17,6 +17,21 @@ module Trample
       @iterations
     end
 
+    def rampup_interval(*value)
+      @rampup_interval = value.first unless value.empty?
+      @rampup_interval
+    end
+
+    def random_wait_interval(*value)
+      @random_wait_interval = value.first unless value.empty?
+      @random_wait_interval
+    end
+
+    def client(*value)
+      @client = value.first unless value.empty?
+      @client
+    end
+
     def get(url, &block)
       @pages << Page.new(:get, url, block || {})
     end
