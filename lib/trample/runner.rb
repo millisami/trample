@@ -13,23 +13,26 @@ module Trample
     def trample
       logger.info "Starting trample..."
 
-      config.concurrency.times do
-        sleep(@config.rampup_interval)
+      config.concurrency.times do |i|
         thread = Thread.new(@config) do |c|
+          logger.info("starting user #{i+1}") 
           all_response_times << Session.new(c).trample
+          logger.info("ending user #{i+1}") 
         end
         threads << thread
+        sleep(@config.rampup_interval)
       end
-      threads.each { |t| t.join }
+
+      threads.each {|t| t.join}
       
       #sum it all up
       total_elapsed = 0
       total_requests = 0
       
       all_response_times.each_with_index do |thread_response_times,i|
-        elapsed = thread_response_times.sum
+        elapsed = thread_response_times.inject(:+)
         requests = thread_response_times.count
-        logger.info "Thread #{i+1} completed in #{elapsed.round(4)} seconds, with an average of #{(elapsed/thread_response_times.count).round(4)} seconds per request"
+        logger.info "User #{i+1} completed in #{elapsed.round(4)} seconds, with an average of #{(elapsed/thread_response_times.count).round(4)} seconds per request"
         total_elapsed += elapsed
         total_requests += requests
       end
