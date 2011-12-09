@@ -44,6 +44,11 @@ To run trample, save your configuration somewhere and run:
 
   trample start /path/to/your/trample/config.rb
 
+== Development
+  If the `config.rb` file is within a Rails app, then from inside that config folder, run the following.
+
+  TEST=1 ../../gitcodes/trample-johnmcaliley/bin/trample start config.rb
+  
 == Copyright
 
 Copyright (c) 2009 James Golick. See LICENSE for details.

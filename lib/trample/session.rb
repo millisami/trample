@@ -40,7 +40,7 @@ module Trample
       def get(page)
         case @config.client
         when :rest
-          RestClient.get(page.url, :cookies => cookies)
+          RestClient.get(page.url, :cookies => cookies, :accept => 'json')
         when :mechanize
           agent = Mechanize.new
           agent.get(page.url)
@@ -50,7 +50,7 @@ module Trample
       def post(page)
         case @config.client
         when :rest
-          RestClient.post(page.url, page.parameters, :cookies => cookies)
+          RestClient.post(page.url, page.parameters, :cookies => cookies, :accept => 'json')
         when :mechanize
           Mechanize.new.post(page.url,page.parameters)
         end

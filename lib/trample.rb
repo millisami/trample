@@ -1,4 +1,4 @@
-gem 'sevenwire-rest-client'
+gem     'rest-client'
 require 'log4r'
 require 'rest_client'
 require 'mechanize'
