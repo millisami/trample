@@ -1,9 +1,8 @@
 require 'thor'
-if ENV['TEST']
+if ENV['VERBOSE']
   require 'httplog'
-  require 'ruby-debug'
-  ::Debugger.start
-  ::Debugger.settings[:autoeval] = true if ::Debugger.respond_to?(:settings)
+  require 'pry'
+  require 'pry-nav'
 end
 
 module Trample
