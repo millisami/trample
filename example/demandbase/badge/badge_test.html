@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CF Qualification Test</title>
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+  <script type="text/javascript" src="http://bizcardarmy-run.s3.amazonaws.com/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="http://bizcardarmy-run.s3.amazonaws.com/jquery-ui-1.8.16.custom.min.js"></script>
+  <script src="http://tomb-finder.s3.amazonaws.com/facefiles/lightbox.js" type="text/javascript"></script>
+
+  <script>
+    $(document).ready(function() {
+		   $('.start_button').click(function(){
+					$(this).parents('div.badge_instruction').hide();
+					show_test_form_only()
+				});
+				
+				if ($('.alert-message').length >0 ){ 
+					show_test_form_only();
+				}
+				
+		   	$('a[rel*=facebox]').facebox();// Ligthbox for worker instruction
+		
+			  $('.url_not_found').parents('.company_url').find('.company_url_textbox').val('');
+				
+			  $('.url_not_found').click(function(){
+		      $(this).parents('.company_url').find('.company_url_textbox').val('Not Found');
+		      return false;
+				});
+				
+				// Replace 'http://' or 'https://' for the input url
+				$('.company_url_textbox').change(function() {
+					$(this).val($(this).val().replace('http://','').replace('https://',''));
+				});
+
+		});
+		function show_test_form_only(){
+			$('div.instruction_container').remove();
+			$('.container').show();
+		}
+  </script>
+
+  <style type="text/css">
+	  html {font-size: 100%;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%; background-color:#fff;}
+    body {background:#fff;margin: 0;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;font-size: 14px;line-height: 18px;color: #333333;padding-top: 75px;}
+    .container, .instruction_container{width: 950px;margin-left: auto;margin-right: auto;*zoom: 1; border: 3px solid #9EAAB8;padding:6px 20px 35px 50px;margin-top:-50px;}
+    .container:after, .instruction_container:after{clear:both;}
+   .badge_instruction h1{font-family: Arial, sans-serif;}
+		.badge_instruction li{font-size:16px;color:#0A58C4;padding-bottom: 10px;}
+	 .start_button {display: block;margin: 0 auto;text-align: center;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;font-size: 16px;}
+		a.start_button {
+		  	-moz-transition: all 0.4s ease-in-out 0s;
+		    background: none repeat scroll 0 0 #CBCED1;
+		    border: 1px solid #DDDDDD;
+		    border-radius: 10px 10px 10px 10px;
+		    color: #A6B2BA;
+		    display: block;
+		    font-size: 16px;
+		    padding: 6px;
+		    text-align: center;
+		    text-decoration: none;
+		    width: 62px;
+        background:#4195DD;
+			  background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#005FCF), to(#4195DD));
+				background:-moz-linear-gradient(0% 90% 90deg, #4195DD, #003C82);
+		}
+		a.start_button:hover {color:#fff;border-color:#3278BE;}
+  
+    /*  - - Worker Instruction  Lightbox - - 	*/
+    #instruction_button { color: #000;width: 119px;	border-radius:5px;background-color:#687096;padding: 7px 0 7px 7px;margin:32px 0 0 492px;position: absolute;}
+		#instruction_button:hover{ background-color: #AFB4C9; }
+    #inst_button_text {text-decoration:none ;color:#fff;font-style:italic;font-weight:bold;}
+    #facebox { position: absolute;width: 100%;top: 0;left: 0;z-index: 1000000000;text-align: left; }
+    #facebox .popup { position: relative;}
+    #facebox table { margin: auto; border-collapse: collapse; }
+    #facebox .body { padding: 10px; background: #fff; width: 550px; border: 8px solid #737373;}
+    #facebox .loading {	text-align: center;}
+    #facebox .footer { border-top: 1px solid #DDDDDD; padding-top: 5px;margin-top: 10px;text-align: right; }
+     /*  - - End of instructions lightbox css	- - */
+   
+    /*   :::::: CSS FOR BADGE QUALIFICATION TEST FORM ::::::::*/
+    #badge_wrapper { background: #FFF;position: relative; overflow:hidden;	padding:0 10px;}
+	  #badge_content {	margin: 0 auto;width: 960px;margin-bottom: 20px;}
+	  #test_header{margin: 0 auto;width: 960px; font-size:24px; font-weight:bold;color:#850337;background:#D9D9D9;padding:13px 0 13px 9px;}
+
+    #header {	padding: 10px 0 0px;height: 50px;font-family:"Trebuchet MS",Arial, sans-serif;font-size: 22px;font-weight: bold;color: #666666;margin: 0 auto;width: 960px;	margin-bottom :3px;}
+		 #company_info_container{border:3px solid #C9C9C9;-webkit-border-radius: 4px;
+      -moz-border-radius: 4px;border-radius: 4px;width:66%;	background-color:#E8E8E8;padding: 10px 0 10px 15px;width: 64%;margin:12px 0 16px;}
+		.btn {
+	       display: inline-block;
+	       padding: 4px 10px 4px;
+	       font-size: 13px;
+	       line-height: 18px;
+	       color: #333333;
+	       text-align: center;
+	       text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	       background-color: #fafafa;
+	       background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
+	       background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+	       background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
+	       background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+	       background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+	       background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+	       background-repeat: no-repeat;
+	       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+	       border: 1px solid #ccc;
+	       border-bottom-color: #bbb;
+	       -webkit-border-radius: 4px;
+	       -moz-border-radius: 4px;
+	       border-radius: 4px;
+	       -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	       -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	       cursor: pointer;
+	       *margin-left: .3em;
+	  }
+    .btn:hover { color: #333333;text-decoration: none;background-color: #e6e6e6; background-position: 0 -15px;}
+	  .company_name{font-size:20px;font-weight:bold;}
+		#company_info_table{margin-top:10px;}
+		#company_info_table td,#company_name_label{padding: 10px 10px 9px;text-align: left;border-top: 1px solid #DDDDDD;vertical-align: top;}
+		.company_data{font-weight:bold;}
+		#company_purchased{padding: 22px 0 24px;}
+		.url_check{	padding: 8px 0 0 280px;}
+		input[type="text"] {width: 323px; height: 20px;font-size:12px;padding: 0;margin: 0 5px;*margin-top: 0;}
+		#submit_btn{padding-left:270px}
+		.buttons_container{padding-bottom:16px;overflow:hidden;margin-bottom:10px;}
+		.test_pagination{color: #850337;font-size: 28px;font-weight: bold;margin:30px 0 20px 0 ;}
+	  .topbar {visibility:hidden;}
+		.form_label{	font-weight:bold;}
+	</style>
+
+</head>
+
+<body>
+	<div class="instruction_container"> 
+	<!-- :::::::  INSTRUCTIONS TO WORKER BEFORE BADGE TEST ::::::: -->
+	 <div class="badge_instruction">
+			<h2>Instructions</h2>
+   		<h4>URL :</h4>
+   	  <ul class="instruction-list">
+   				<li>Search for the company name,address,city and country in google</li>
+   				<li>Make sure that the address, city and country names match with that in the website you find.</li>
+   				<li>Copy the official website address in the textbox (without http:// or https://)</li>
+   				<li>If you don't find the website address, tick the check box "I couldn't find the URL"</li>
+   			
+   		</ul>
+   		<h4>Purchased : </h4>
+   	  <ul class="instruction-list">
+   				<li>Look for the texts like "owned","purchased", or "acquired" in the website itself.</li>
+   				<li>If it is not mentioned in the website, try looking for the other news/ blog sites that talk about it being purchased.</li>
+    		</ul>
+			  <div ><a href="#" class="start_button">Start</a></div>
+	 </div>
+	 </div>
+	
+	<div class="container" style="display:none;"> 
+  <div id="badge_test_container">
+	  <div id="badge_wrapper">
+	    <div id="test_header">You are Taking Qualification Tests </div> 
+	  	
+	    <div id ="instruction_button">
+    		<a href="#instruction" rel="facebox" id="inst_button_text">INSTRUCTIONS</a>
+    	</div>
+      <div id="instruction" style="display:none;">
+    		<h2>Instructions</h2>
+    		<h4>URL :</h4>
+    	  <ul class="instruction-list">
+    				<li>Search for the company name,address,city and country in google.com</li>
+    				<li>Make sure that the address city and country names match with that in the website you find.</li>
+    				<li>Copy the URL of the website in the given field (without http:// or https://)</li>
+    				<li>If you don't find the URL, tick the check box "I couldn't find the URL"</li>
+    			
+    		</ul>
+    		<h4>Purchased : </h4>
+    	  <ul class="instruction-list">
+    				<li>Look for the texts like "owned","purchased", or "acquired" in the website itself.</li>
+    				<li>If it is not mentioned in the URL, try looking for the other news/ blog sites that talk about it being purchased.</li>
+     		</ul>
+    	</div>
+   
+       <div id="header">Find the official website address of the following company</div>
+       <form>
+          <!-- :::::::: COMPANY INFO CONTAINER # 1 ::::::::::: -->
+           <div id="company_info_1" >
+	         	<div class="test_pagination"><span> Test #1 of 3 </span></div>
+           	<div id="company_info_container">
+           	   <span id="company_name_label">Company name : <span class="company_name">11906 Brittmoore Park Drive</span>
+           	   <table id="company_info_table">
+           	      <tr>
+           	      	<td>Address</td>
+           	        <td class="company_data">: 11906 Brittmoore Park Dr A</td>
+           	      </tr>
+           				<tr>
+           	      	<td>City</td>
+           	        <td class="company_data">: Houston</td>
+           	      </tr>
+           				<tr>
+           	      	<td>Country</td>
+           	        <td class="company_data">: United States</td>
+           	      </tr>
+									<tr>
+           	      	<td>State</td>
+           	        <td class="company_data">: TX</td>
+           	      </tr>
+									<tr>
+           	      	<td>Phone</td>
+           	        <td class="company_data">: 281-582-0700</td>
+           	      </tr>
+           	     	<tr>
+           	      	<td>Description</td>
+           	        <td class="company_data">: REFUSE SYSTEMS</td>
+           	      </tr>
+           	   </table>
+           	</div>
+           </div><!--  /company_info_1 -->
+          
+          	<div id="test_form_1">
+             <div class="company_url">
+               <span class="form_label">Copy the URL of the company here :  </span>
+           		http:// <input  type="text" name="output[company_url_1]" class="company_url_textbox" placeholder="www.example.com/"/> 
+           		<div class="url_check">
+								  <a href="#" class="url_not_found" >I couldn't find the URL</a>
+	            </div>
+           	</div>
+           	<div id="company_purchased">
+           		<span class="form_label">Was this company purchased by other companies ? </span>	
+           		<select name="output[is_purchased_by_other_company_1]" class="is_purchased">
+           			<option value="NO">NO</option>
+           			<option value="YES">YES</option>
+                </select>	
+             </div>				    
+           </div><!--  /test_form_1 -->
+          
+		       <!-- :::::::: COMPANY INFO CONTAINER # 2  - // Domain Not found // ::::::::::: -->
+          	<div id="company_info_2" >
+	          	<div class="test_pagination"><span> Test #2 of 3 </span></div>
+           	<div id="company_info_container">
+           	   <span id="company_name_label">Company name : <span class="company_name">Abiba</span>
+           	   <table id="company_info_table">
+           	      <tr>
+           	      	<td>Address</td>
+           	        <td class="company_data">: 3 4 11 Negishicho</td>
+           	      </tr>
+           				<tr>
+           	      	<td>City</td>
+           	        <td class="company_data">: Yokosuka</td>
+           	      </tr>
+           				<tr>
+           	      	<td>Country</td>
+           	        <td class="company_data">: Japan</td>
+           	      </tr>
+									<tr>
+           	      	<td>Phone</td>
+           	        <td class="company_data">: +81 468332101</td>
+           	      </tr>
+           	     	<tr>
+           	      	<td>Description</td>
+           	        <td class="company_data">: AMUSEMENT DEVICES, COIN-OPERATED</td>
+           	      </tr>
+           	   </table>
+           	 </div>
+           </div><!--  /company_info_2 -->
+          
+           <div id="test_form_2" >
+             <div class="company_url">
+               <span class="form_label">Copy the URL of the company here :  </span>
+           		http:// <input  type="text" name="output[company_url_2]" class="company_url_textbox" placeholder="www.example.com/"/> 
+           		<div class="url_check">
+									<a href="#" class="url_not_found" >I couldn't find the URL</a>
+	            </div>
+           	</div>
+           	<div id="company_purchased">
+           		<span class="form_label">Was this company purchased by other companies ? </span>	
+           		<select name="output[is_purchased_by_other_company_2]" class="is_purchased">
+           			<option value="NO">NO</option>
+           			<option value="YES">YES</option>
+                </select>	
+             </div>				    
+           </div><!--  /test_form_2 -->
+          
+		       <!-- :::::::: COMPANY INFO CONTAINER # 3 // Purchased //::::::::::: -->
+          	<div id="company_info_3">
+	         	<div class="test_pagination"><span> Test #3 of 3 </span></div>
+           	<div id="company_info_container">
+           	   <span id="company_name_label">Company name : <span class="company_name">Abraxis Bioscience</span>
+           	   <table id="company_info_table">
+           	      <tr>
+           	      	<td>Address</td>
+           	        <td class="company_data">: 11755 Wilshire Blvd. 20th Floor</td>
+           	      </tr>
+           				<tr>
+           	      	<td>City</td>
+           	        <td class="company_data">: Los Angeles</td>
+           	      </tr>
+           				<tr>
+           	      	<td>Country</td>
+           	        <td class="company_data">: United States</td>
+           	      </tr>
+									<tr>
+           	      	<td>State</td>
+           	        <td class="company_data">: CA</td>
+           	      </tr>
+									<tr>
+           	      	<td>Phone</td>
+           	        <td class="company_data">: 310-883-1300</td>
+           	      </tr>
+           	     	<tr>
+           	      	<td>Description</td>
+           	        <td class="company_data">: PHARMACEUTICAL PREPARATIONS </td>
+           	      </tr>
+           	   </table>
+           	 </div>
+           </div><!--  /company_info_3 -->
+           
+           <div id="test_form_3">
+               <div class="company_url">
+           	    <span class="form_label">Copy the URL of the company here :  </span>
+           			http:// <input  type="text" name="output[company_url_3]" class="company_url_textbox" placeholder="www.example.com/"/> 
+           			<div class="url_check">
+	  							  <a href="#" class="url_not_found" >I couldn't find the URL</a>
+	              </div>
+           		</div>
+           		<div id="company_purchased">
+           			<span class="form_label">Was this company purchased by other companies ? </span>	
+           			<select name="output[is_purchased_by_other_company_3]" class="is_purchased">
+           				<option value="NO">NO</option>
+           				<option value="YES">YES</option>
+                  </select>	
+               </div>				    
+           </div><!--  /test_form_3 -->
+            
+           <div id="submit_btn" style="display:;">
+               <input type="submit" class="btn" value = "Submit" />
+           </div>
+       </form> <!-- /Form-->
+  
+		  </div> <!-- /content -->
+		</div> <!-- /badge_wrapper -->		  
+	</div> <!-- /badge_test_container-->
+	
+</div> <!-- /container -->
+</body>
+</html>
